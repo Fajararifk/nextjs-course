@@ -47,7 +47,7 @@ export async function getStaticPaths(){
 
     client.close()
     return {
-        fallback: false, // auto pregenerate when have request
+        fallback: 'blocking', // auto pregenerate when have request
         paths: meetups.map(meetup => ({
             params : {meetupId: meetup._id.toString()}}))
         
