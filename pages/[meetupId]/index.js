@@ -75,12 +75,18 @@ const client = await MongoClient.connect('mongodb+srv://khamdiyahk:ru0tbdIM3Hbfz
   
     const meetupCollection = db.collection('meetups')
   
-    const selectedMeetups = await meetupCollection.findOne({_id:ObjectId(meetupId)}).toArray();
+    const selectedMeetup = await meetupCollection.findOne({_id:ObjectId(meetupId)}).toArray();
 
     client.close()
   return {
     props : {
-        meetupData: selectedMeetups
+        meetupData: {
+            id: selectedMeetup._id.toString(),
+            title: selectedMeetup.title,
+            address: selectedMeetup.address,
+            image: selectedMeetup.image,
+            description: selectedMeetup.description,
+        }
     //   meetups: {
     //     image: "https://upload.wikimedia.org/wikipedia/commons/8/87/Jerusalem-2013-Temple_Mount-Al-Aqsa_Mosque_%28NE_exposure%29.jpg",
     //     title: "A first meetup",
