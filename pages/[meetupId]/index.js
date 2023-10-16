@@ -1,3 +1,4 @@
+import Head from "next/head";
 import {MeetupDetail, ObjectId} from "../../components/meetups/MeetupDetail";
 const { Fragment } = require("react");
 
@@ -35,7 +36,7 @@ function MeetupDetails(props){
 export default MeetupDetails;
 
 
-export async function getStatisPaths(){
+export async function getStaticPaths(){
 
     const client = await MongoClient.connect('mongodb+srv://khamdiyahk:ru0tbdIM3HbfzRDy@cluster0.0fpjijh.mongodb.net/?retryWrites=true&w=majority')
     const db = client.db();
