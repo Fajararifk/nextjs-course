@@ -75,7 +75,7 @@ const client = await MongoClient.connect('mongodb+srv://khamdiyahk:ru0tbdIM3Hbfz
   
     const meetupCollection = db.collection('meetups')
   
-    const selectedMeetup = await meetupCollection.findOne({_id:ObjectId(meetupId)}).toArray();
+    const selectedMeetup = await meetupCollection.findOne({_id: new ObjectId(meetupId)}).toArray();
 
     client.close()
   return {
